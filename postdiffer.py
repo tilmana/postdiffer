@@ -9,12 +9,12 @@ oldRequestData = oldRequest.readlines()[0].split("&")
 newRequestData = newRequest.readlines()[0].split("&")
 
 for value in oldRequestData:
-    value = value.split("=")
+    value = value.split("=", 1)
     if len(value) == 2:
         oldData[value[0]] = value[1]
 
 for value in newRequestData:
-    value = value.split("=")
+    value = value.split("=", 1)
     if len(value) == 2:
         newData[value[0]] = value[1]
 
