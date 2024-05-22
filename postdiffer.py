@@ -26,5 +26,11 @@ for key in oldData:
             print(f"{oldData[key]} / {newData[key]}")
 
 print(f"Differing parameters: {diffData}")
-print(f"Keys only in old request: {oldData.keys() - newData.keys()}")
-print(f"Keys only in new request: {newData.keys() - oldData.keys()}")
+if oldData.keys() - newData.keys():
+    print(f"Keys only in old request: {oldData.keys() - newData.keys()}")
+else:
+    print("No difference in keys between old request versus new request")
+if newData.keys() - oldData.keys():
+    print(f"Keys only in new request: {newData.keys() - oldData.keys()}")
+else:
+    print("No difference in keys between new request versus old request")
