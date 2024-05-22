@@ -26,7 +26,9 @@ oldValues = sorted(oldValues)
 newParams = sorted(newParams)
 newValues = sorted(newValues)
 
-for i in range(len(oldValues)):
+for i in range(min(len(oldParams), len(newParams))):
+    diffCount = abs(len(oldParams) - len(newParams))
+    print(f"[!] Skipped {diffCount} parameters due to difference in count between request bodies!")
     if oldValues[i] == newValues[i]:
         pass
     else:
