@@ -9,15 +9,18 @@ newValues = []
 oldRequestData = oldRequest.readlines()[0].split("&")
 newRequestData = newRequest.readlines()[0].split("&")
 
-for value in oldRequestData:
-    value = value.split("=")
-    oldParams.append(value[0])
-    oldValues.append(value[1])
+try:
+    for value in oldRequestData:
+        value = value.split("=")
+        oldParams.append(value[0])
+        oldValues.append(value[1])
 
-for value in newRequestData:
-    value = value.split("=")
-    newParams.append(value[0])
-    newValues.append(value[1])
+    for value in newRequestData:
+        value = value.split("=")
+        newParams.append(value[0])
+        newValues.append(value[1])
+except IndexError:
+    pass
 
 oldParams = sorted(oldParams)
 oldValues = sorted(oldValues)
