@@ -3,6 +3,7 @@ newRequest = open("newrequest.txt", "r")
 
 oldData = {}
 newData = {}
+diffData = []
 
 oldRequestData = oldRequest.readlines()[0].split("&")
 newRequestData = newRequest.readlines()[0].split("&")
@@ -20,8 +21,8 @@ for value in newRequestData:
 for key in oldData:
     if key in newData:
         if oldData[key] != newData[key]:
-            print(f"Difference in {key}!")
+            diffData.append(key)
+            print(f"=====Difference in {key}!=====")
             print(f"{oldData[key]} / {newData[key]}")
 
-diffCount = abs(len(oldData) - len(newData))
-print(f"[!] Skipped {diffCount} parameters due to difference in count between request bodies!")
+print(f"Differing parameters: {diffData}")
